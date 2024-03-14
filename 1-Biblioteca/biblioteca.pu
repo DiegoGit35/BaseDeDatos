@@ -1,0 +1,97 @@
+@startuml
+  entity socio{
+    *cod_socio: number «generated»
+    --
+    *dni:       number
+    *direccion: text
+    *telefono:  number
+    *nombre:    text
+    *apellido:  text
+  }
+
+  entity socio_baja{
+    *cod_socio: number «generated»
+    --
+    *dni:       number
+    *direccion: text
+    *telefono:  number
+    *nombre:    text
+    *apellido:  text
+    timestamp_baja: date
+  }
+
+  entity libro{
+    *id_libro:  number «generated»
+    --
+    *anio:      date
+    *titulo:    text
+    *editorial: text
+    *estado:    text
+    *timestamp_registro date
+    *autores:   text
+    *ISBN:      number
+  }
+
+  entity libro_baja{
+    *id_libro:  number «generated»
+    --
+    *anio:      date
+    *titulo:    text
+    *editorial: text
+    *estado:    text
+    *timestamp_registro date
+    *autores:   text
+    *ISBN:      number
+    *timestamp_baja: date
+  }
+
+  entity item_libro_en_prestamo {
+    *id_item:    number  «generated»
+    --
+    id_libro:    number  «FK»
+    id_prestamo: number  «FK»
+  }
+
+  entity item_libro_en_prestamo_baja {
+    *id_item:    number  «generated»
+    --
+    id_libro:    number  «FK»
+    id_prestamo: number  «FK»
+    timestamp_baja:      date
+  }
+
+  entity prestamo{
+    *id_prestamo:     number  «generated»
+    --
+    *cod_socio:       number  «FK»
+    *id_bibliotecario number  «FK»
+    *timestamp_prestamo:      date
+    *id_estado: text          «FK»
+    *timestamp_devolucion:    date
+  }
+
+  entity prestamo_baja{
+    *id_prestamo:     number  «generated»
+    --
+    *cod_socio:       number  «FK»
+    *id_bibliotecario number  «FK»
+    *timestamp_prestamo:      date
+    *id_estado: text          «FK»
+    *timestamp_devolucion:    date
+    *timestamp_baja           date
+  }
+
+  entity estado_prestamo{
+    id_estado  text
+  }
+
+libro     ||--o{    item_libro_en_prestamo
+prestamo  ||--|{    item_libro_en_prestamo
+socio     ||--o{    prestamo
+prestamo  }o--||    estado_prestamo
+
+libro     ||--||    libro_baja
+prestamo  ||--||    prestamo_baja
+socio     ||--||    socio_baja
+item_libro_en_prestamo  ||--||    item_libro_en_prestamo_baja
+@enduml
