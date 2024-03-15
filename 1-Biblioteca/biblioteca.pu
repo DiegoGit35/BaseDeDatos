@@ -64,7 +64,6 @@
     *id_prestamo:     number  «generated»
     --
     *cod_socio:       number  «FK»
-    *id_bibliotecario number  «FK»
     *timestamp_prestamo:      date
     *id_estado: text          «FK»
     *timestamp_devolucion:    date
@@ -74,7 +73,6 @@
     *id_prestamo:     number  «generated»
     --
     *cod_socio:       number  «FK»
-    *id_bibliotecario number  «FK»
     *timestamp_prestamo:      date
     *id_estado: text          «FK»
     *timestamp_devolucion:    date
