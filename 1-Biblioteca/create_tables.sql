@@ -13,7 +13,7 @@ CREATE TABLE   socio_baja(cod_socio integer PRIMARY KEY,
   telefono integer,
   nombre text,
   apellido text,
-  timestamp_baja current_timestamp,
+  timestamp_baja current_timestamp NOT NULL DEFAULT CURRENT_DATE,
   UNIQUE (cod_socio, dni)
 );
 
@@ -38,7 +38,7 @@ CREATE TABLE  prestamo_baja(
   fecha_prestamo NOT NULL DEFAULT CURRENT_DATE,
   id_estado text references estado_prestamo(id_estado) on DELETE restrict deferrable initially deferred,
   fecha_devolucion CURRENT_DATE,
-  timestamp_baja  current_timestamp,
+  timestamp_baja  current_timestamp NOT NULL DEFAULT CURRENT_DATE,
   UNIQUE(id_prestamo)
 );
 
@@ -64,8 +64,9 @@ CREATE TABLE  libro(
   anio  integer,
   titulo  text,
   editorial text,
-  estado text,
-  timestamp_registro current_timestamp,
+  estado_fisico text NOT NULL DEFAULT "Bueno",
+  disponibilidad text NOT NULL DEFAULT "Disponible",
+  timestamp_registro current_timestamp NOT NULL DEFAULT CURRENT_DATE,
   autores text,
   isbn  integer,
   UNIQUE(id_ejemplar)
@@ -76,9 +77,10 @@ CREATE TABLE  libro_baja(
   anio  integer,
   titulo  text,
   editorial text,
-  estado text,
+  estado_fisico text,
+  disponibilidad text NOT NULL DEFAULT "Baja",
   timestamp_registro current_timestamp,
-  timestamp_baja current_timestamp,
+  timestamp_baja current_timestamp NOT NULL DEFAULT CURRENT_DATE,
   autores text,
   isbn  integer,
   UNIQUE(id_ejemplar)

@@ -1,0 +1,7 @@
+limitar la cantidad de libros prestados a socios a 3 a la vez
+ABM libros, empleados, pedidos y socio
+buscar libros atrasados en devolucion
+todos los libros en prestamo actualmente
+buscar cantidad de ejemplares para un libro ordenar por ejemplares y diponibilidad
+listar libros en mal estado
+buscar 10 libros mas pedidos

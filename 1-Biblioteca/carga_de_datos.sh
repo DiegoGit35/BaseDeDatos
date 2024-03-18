@@ -22,3 +22,9 @@
 ./alta_socio.sh 95199392 "Carlos Quiroga 120" 2622254460 "Diego Estrada"
 ./alta_socio.sh 13238883 "Av. Siempre Viva 792" 262228838 "John Lennon"
 ./alta_socio.sh 8283773 "Av. Tendo Dojo" 2622152737 "Miyake Shinobu"
+
+./alta_prestamo.sh 3 2
+./alta_prestamo.sh 2 5
+./alta_prestamo.sh 2 7
+./alta_prestamo.sh 3 1
+./alta_prestamo.sh 3 4

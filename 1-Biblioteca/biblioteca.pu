@@ -23,13 +23,14 @@
   entity libro{
     *id_libro:  number «generated»
     --
-    *anio:      date
-    *titulo:    text
-    *editorial: text
-    *estado:    text
-    *timestamp_registro date
-    *autores:   text
-    *ISBN:      number
+    *anio:              date
+    *titulo:            text
+    *editorial:         text
+    *estado_fisico:     text
+    *disponibilidad:    text
+    *timestamp_registro:date
+    *autores:           text
+    *ISBN:              number
   }
 
   entity libro_baja{
