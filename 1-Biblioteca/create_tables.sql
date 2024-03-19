@@ -27,7 +27,7 @@ CREATE TABLE  prestamo(
   on DELETE restrict deferrable initially deferred,
   fecha_prestamo NOT NULL DEFAULT CURRENT_DATE,
   id_estado text references estado_prestamo(id_estado) on DELETE restrict deferrable initially deferred NOT NULL DEFAULT "PENDIENTE",
-  fecha_devolucion CURRENT_DATE,
+  fecha_devolucion date,
   UNIQUE(id_prestamo)
 );
 
