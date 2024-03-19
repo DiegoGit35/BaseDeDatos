@@ -51,6 +51,7 @@
     --
     id_libro:    number  «FK»
     id_prestamo: number  «FK»
+    *timestamp_devolucion:    date
   }
 
   entity item_libro_en_prestamo_baja {
@@ -58,6 +59,7 @@
     --
     id_libro:    number  «FK»
     id_prestamo: number  «FK»
+    *timestamp_devolucion:    date
     timestamp_baja:      date
   }
 
@@ -67,7 +69,6 @@
     *cod_socio:       number  «FK»
     *timestamp_prestamo:      date
     *id_estado: text          «FK»
-    *timestamp_devolucion:    date
   }
 
   entity prestamo_baja{
@@ -76,7 +77,6 @@
     *cod_socio:       number  «FK»
     *timestamp_prestamo:      date
     *id_estado: text          «FK»
-    *timestamp_devolucion:    date
     *timestamp_baja           date
   }
 

@@ -28,3 +28,5 @@
 ./alta_prestamo.sh 2 7
 ./alta_prestamo.sh 3 1
 ./alta_prestamo.sh 3 4
+
+sqlite3 biblioteca.db "update prestamo set fecha_prestamo='2024-03-03' where id_prestamo=1"

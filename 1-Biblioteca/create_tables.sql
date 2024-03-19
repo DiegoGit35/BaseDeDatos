@@ -4,7 +4,7 @@ CREATE TABLE   socio(cod_socio integer PRIMARY KEY,
   telefono integer,
   nombre text,
   apellido text,
-  UNIQUE (cod_socio, dni)
+  UNIQUE (dni)
 );
 
 CREATE TABLE   socio_baja(cod_socio integer PRIMARY KEY,
@@ -14,7 +14,7 @@ CREATE TABLE   socio_baja(cod_socio integer PRIMARY KEY,
   nombre text,
   apellido text,
   timestamp_baja current_timestamp NOT NULL DEFAULT CURRENT_DATE,
-  UNIQUE (cod_socio, dni)
+  UNIQUE (dni)
 );
 
 CREATE TABLE  estado_prestamo(
@@ -26,9 +26,7 @@ CREATE TABLE  prestamo(
   cod_socio integer references socio(cod_socio)
   on DELETE restrict deferrable initially deferred,
   fecha_prestamo NOT NULL DEFAULT CURRENT_DATE,
-  id_estado text references estado_prestamo(id_estado) on DELETE restrict deferrable initially deferred NOT NULL DEFAULT "PENDIENTE",
-  fecha_devolucion date,
-  UNIQUE(id_prestamo)
+  id_estado text references estado_prestamo(id_estado) on DELETE restrict deferrable initially deferred NOT NULL DEFAULT "PENDIENTE"
 );
 
 CREATE TABLE  prestamo_baja(
@@ -37,9 +35,7 @@ CREATE TABLE  prestamo_baja(
   on DELETE restrict deferrable initially deferred,
   fecha_prestamo NOT NULL DEFAULT CURRENT_DATE,
   id_estado text references estado_prestamo(id_estado) on DELETE restrict deferrable initially deferred,
-  fecha_devolucion CURRENT_DATE,
-  timestamp_baja  current_timestamp NOT NULL DEFAULT CURRENT_DATE,
-  UNIQUE(id_prestamo)
+  timestamp_baja  current_timestamp NOT NULL DEFAULT CURRENT_DATE
 );
 
 CREATE TABLE  item_libro_en_prestamo(
@@ -47,7 +43,7 @@ CREATE TABLE  item_libro_en_prestamo(
   id_libro  integer references libro(id_ejemplar)
   on DELETE restrict deferrable initially deferred,
   id_prestamo integer references prestamo(id_prestamo) ON DELETE restrict deferrable initially deferred,
-  UNIQUE(id_item)
+  fecha_devolucion text
 );
 
 
@@ -56,7 +52,7 @@ CREATE TABLE  item_libro_en_prestamo_baja(
   id_libro  integer references libro(id_ejemplar)
   on DELETE restrict deferrable initially deferred,
   id_prestamo integer references prestamo(id_prestamo) ON DELETE restrict deferrable initially deferred,
-  UNIQUE(id_item)
+  fecha_devolucion CURRENT_DATE
 );
 
 CREATE TABLE  libro(
@@ -68,8 +64,7 @@ CREATE TABLE  libro(
   disponibilidad text NOT NULL DEFAULT "Disponible",
   timestamp_registro current_timestamp NOT NULL DEFAULT CURRENT_DATE,
   autores text,
-  isbn  integer,
-  UNIQUE(id_ejemplar)
+  isbn  integer
 );
 
 CREATE TABLE  libro_baja(
@@ -82,8 +77,7 @@ CREATE TABLE  libro_baja(
   timestamp_registro current_timestamp,
   timestamp_baja current_timestamp NOT NULL DEFAULT CURRENT_DATE,
   autores text,
-  isbn  integer,
-  UNIQUE(id_ejemplar)
+  isbn  integer
 );
 
 
