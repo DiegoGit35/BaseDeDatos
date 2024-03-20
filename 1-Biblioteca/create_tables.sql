@@ -43,6 +43,7 @@ CREATE TABLE  item_libro_en_prestamo(
   id_libro  integer references libro(id_ejemplar)
   on DELETE restrict deferrable initially deferred,
   id_prestamo integer references prestamo(id_prestamo) ON DELETE restrict deferrable initially deferred,
+  fecha_limite_devolucion DEFAULT CURRENT_DATE,
   fecha_devolucion text
 );
 

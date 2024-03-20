@@ -51,7 +51,8 @@
     --
     id_libro:    number  «FK»
     id_prestamo: number  «FK»
-    *timestamp_devolucion:    date
+    *fecha_limite_devolucion: date «generated»
+    *fecha_devolucion:        date
   }
 
   entity item_libro_en_prestamo_baja {
