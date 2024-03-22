@@ -15,9 +15,9 @@
 ./alta_libro.sh 2010 "The Linux programming interface" "No Starch Press" Nuevo "Michael Kerrisk" 2139812
 ./alta_libro.sh 2010 "The Linux programming interface" "No Starch Press" Nuevo "Michael Kerrisk" 2139812
 
-./alta_estado.sh "Prestado"
-./alta_estado.sh "Disponible"
-./alta_estado.sh "Devolucion atrasada"
+# ./alta_estado.sh "Prestado"
+# ./alta_estado.sh "Disponible"
+# ./alta_estado.sh "Devolucion atrasada"
 
 ./alta_socio.sh 95199392 "Carlos Quiroga 120" 2622254460 "Diego Estrada"
 ./alta_socio.sh 13238883 "Av. Siempre Viva 792" 262228838 "John Lennon"

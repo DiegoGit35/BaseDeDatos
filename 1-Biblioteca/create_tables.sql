@@ -1,4 +1,4 @@
-CREATE TABLE   socio(cod_socio integer PRIMARY KEY,
+CREATE TABLE socio(cod_socio integer PRIMARY KEY,
   dni integer,
   direccion text,
   telefono integer,
@@ -8,12 +8,12 @@ CREATE TABLE   socio(cod_socio integer PRIMARY KEY,
   UNIQUE (dni)
 );
 
-CREATE TABLE  prestamo(
+CREATE TABLE prestamo(
   id_prestamo integer NOT NULL PRIMARY KEY,
   cod_socio integer references socio(cod_socio)
   on DELETE restrict deferrable initially deferred,
-  id_estado text references estado_prestamo(id_estado) on DELETE restrict deferrable initially deferred NOT NULL DEFAULT "PENDIENTE"
-  fecha_baja text,
+  id_estado text references estado_prestamo(id_estado) on DELETE restrict deferrable initially deferred NOT NULL DEFAULT "PENDIENTE",
+  fecha_baja text
 );
 
 CREATE TABLE  item_libro_en_prestamo(
@@ -23,8 +23,8 @@ CREATE TABLE  item_libro_en_prestamo(
   id_prestamo integer references prestamo(id_prestamo) ON DELETE restrict deferrable initially deferred,
   fecha_prestamo NOT NULL DEFAULT CURRENT_DATE,
   fecha_limite_devolucion DEFAULT CURRENT_DATE,
-  fecha_devolucion text
-  fecha_baja text,
+  fecha_devolucion text,
+  fecha_baja text
 );
 
 
@@ -37,8 +37,8 @@ CREATE TABLE  libro(
   disponibilidad text NOT NULL DEFAULT "Disponible",
   timestamp_registro current_timestamp NOT NULL DEFAULT CURRENT_DATE,
   autores text,
-  isbn  integer
-  fecha_baja text,
+  isbn  integer,
+  fecha_baja text
 );
 
 CREATE TRIGGER  fecha_limite AFTER INSERT ON item_libro_en_prestamo
