@@ -7,17 +7,7 @@
     *telefono:  number
     *nombre:    text
     *apellido:  text
-  }
-
-  entity socio_baja{
-    *cod_socio: number «generated»
-    --
-    *dni:       number
-    *direccion: text
-    *telefono:  number
-    *nombre:    text
-    *apellido:  text
-    timestamp_baja: date
+    fecha_baja: text
   }
 
   entity libro{
@@ -31,19 +21,7 @@
     *timestamp_registro:date
     *autores:           text
     *ISBN:              number
-  }
-
-  entity libro_baja{
-    *id_libro:  number «generated»
-    --
-    *anio:      date
-    *titulo:    text
-    *editorial: text
-    *estado:    text
-    *timestamp_registro date
-    *autores:   text
-    *ISBN:      number
-    *timestamp_baja: date
+    fecha_baja: text
   }
 
   entity item_libro_en_prestamo {
@@ -54,16 +32,7 @@
     *fecha_prestamo:      date
     *fecha_limite_devolucion: date «generated»
     *fecha_devolucion:        date
-  }
-
-  entity item_libro_en_prestamo_baja {
-    *id_item:    number  «generated»
-    --
-    id_libro:    number  «FK»
-    id_prestamo: number  «FK»
-    *fecha_prestamo:      date
-    *fecha_devolucion:    date
-    fecha_baja:           date
+    fecha_baja: text
   }
 
   entity prestamo{
@@ -71,27 +40,11 @@
     --
     *cod_socio:       number  «FK»
     *id_estado: text          «FK»
-  }
-
-  entity prestamo_baja{
-    *id_prestamo:     number  «generated»
-    --
-    *cod_socio:       number  «FK»
-    *id_estado: text          «FK»
-    *timestamp_baja           date
-  }
-
-  entity estado_prestamo{
-    id_estado  text
+    fecha_baja: text
   }
 
 libro     ||--o{    item_libro_en_prestamo
 prestamo  ||--|{    item_libro_en_prestamo
 socio     ||--o{    prestamo
-prestamo  }o--||    estado_prestamo
 
-libro     ||--||    libro_baja
-prestamo  ||--||    prestamo_baja
-socio     ||--||    socio_baja
-item_libro_en_prestamo  ||--||    item_libro_en_prestamo_baja
 @enduml
