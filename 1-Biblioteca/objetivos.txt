@@ -4,7 +4,5 @@ buscar libros atrasados en devolucion
 listar todo el historial de prestamo de un socio
 todos los libros en prestamo actualmente
 buscar cantidad de ejemplares para un libro ordenar por ejemplares y diponibilidad
-listar libros en mal estado
-buscar 10 libros mas pedidos
 buscar prestamos a partir del titulo de un libro, listar los datos de el/los prestamos, ordenar por estado
 
