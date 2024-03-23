@@ -1,8 +1,10 @@
-libroDisponible=$(sqlite3 biblioteca.db "select * from libro where id_ejemplar = $2 and disponibilidad like 'Disponible'")
+# uso: ./alta_prestamo.sh cod_socio id_libro
+libroDisponible=$(sqlite3 biblioteca.db "select * from libro where id_ejemplar = $2 and disponibilidad like 'Disponible' AND fecha_baja IS NULL")
 if [ -z "$libroDisponible" ]; then
     echo "el libro no está disponible"
 else
-    idPrestamoPendiente=$(sqlite3 biblioteca.db "select id_prestamo from prestamo where cod_socio = $1 and id_estado like 'PENDIENTE'")
+    idPrestamoPendiente=$(sqlite3 biblioteca.db "select id_prestamo from prestamo where cod_socio = $1 and id_estado like 'PENDIENTE' AND fecha_baja IS NULL")
+
     if [ -z "$idPrestamoPendiente" ]; then
         $(sqlite3 biblioteca.db "INSERT INTO prestamo (cod_socio) VALUES ('$1')")
         idNuevoPrestamo=$(sqlite3 biblioteca.db "select id_prestamo from prestamo where cod_socio = $1 and id_estado like 'PENDIENTE'")
