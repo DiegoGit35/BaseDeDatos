@@ -22,7 +22,7 @@ CREATE TABLE  item_libro_en_prestamo(
   on DELETE restrict deferrable initially deferred,
   id_prestamo integer references prestamo(id_prestamo) ON DELETE restrict deferrable initially deferred,
   fecha_prestamo NOT NULL DEFAULT CURRENT_DATE,
-  fecha_limite_devolucion DEFAULT CURRENT_DATE,
+  fecha_limite_devolucion ,
   fecha_devolucion text,
   fecha_baja text
 );
@@ -43,5 +43,5 @@ CREATE TABLE  libro(
 
 CREATE TRIGGER  fecha_limite AFTER INSERT ON item_libro_en_prestamo
 BEGIN
-    UPDATE item_libro_en_prestamo SET fecha_limite_devolucion=DATE('now', '+15 days') WHERE fecha_prestamo=CURRENT_DATE;
+    UPDATE item_libro_en_prestamo SET fecha_limite_devolucion=DATE(fecha_prestamo, '+15 days') WHERE fecha_limite_devolucion IS NULL;
 END
