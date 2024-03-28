@@ -1,0 +1,3 @@
+- añadir cod_ejemplar y reemplazar id_ejemplar por id_libro
+
+- establecer un tabla o varias tablas (sujeto a meditación) que lleve el historial de todos los cambios en las filas de todas las tablas, incluidas las bajas, actualizacion de datos
