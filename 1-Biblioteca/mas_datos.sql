@@ -1,18 +1,18 @@
 -- Insertar datos de libros
-INSERT INTO libro (id_ejemplar, anio, titulo, editorial, autores, isbn)
+INSERT INTO libro (id_ejemplar, anio, disponibilidad, titulo, editorial, autores, isbn)
 VALUES
-  (1, 2005, 'El señor de los anillos', 'Minotauro', 'J.R.R. Tolkien', 9788445071420),
-  (2, 1997, 'Harry Potter y la piedra filosofal', 'Salamandra', 'J.K. Rowling', 9788478884450),
-  (3, 1949, '1984', 'Debolsillo', 'George Orwell', 9786073113905),
-  (4, 2003, 'Cien años de soledad', 'Diana', 'Gabriel García Márquez', 9788437613612),
-  (5, 1960, 'To Kill a Mockingbird', 'J.B. Lippincott & Co.', 'Harper Lee', 9780061120084),
-  (6, 1943, 'El principito', 'Reynal & Hitchcock', 'Antoine de Saint-Exupéry', 9780156012195),
-  (7, 2010, 'The Hunger Games', 'Scholastic Press', 'Suzanne Collins', 9780439023481),
-  (8, 1998, 'The Alchemist', 'HarperCollins', 'Paulo Coelho', 9780061122415),
-  (9, 2007, 'The Road', 'Knopf', 'Cormac McCarthy', 9780307265432),
-  (10, 2015, 'Gone Girl', 'Crown Publishing Group', 'Gillian Flynn', 9780307588371),
-  (11, 1984, 'The Catcher in the Rye', 'Little, Brown and Company', 'J.D. Salinger', 9780316769488),
-  (12, 2009, 'The Help', 'Putnam Adult', 'Kathryn Stockett', 9780399155345);
+  (1, 2005, 'En Prestamo', 'El señor de los anillos', 'Minotauro', 'J.R.R. Tolkien', 9788445071420),
+  (2, 1997, 'En Prestamo', 'Harry Potter y la piedra filosofal', 'Salamandra', 'J.K. Rowling', 9788478884450),
+  (3, 1949, 'En Prestamo', '1984', 'Debolsillo', 'George Orwell', 9786073113905),
+  (4, 2003, 'En Prestamo', 'Cien años de soledad', 'Diana', 'Gabriel García Márquez', 9788437613612),
+  (5, 1960, 'En Prestamo', 'To Kill a Mockingbird', 'J.B. Lippincott & Co.', 'Harper Lee', 9780061120084),
+  (6, 1943, 'En Prestamo', 'El principito', 'Reynal & Hitchcock', 'Antoine de Saint-Exupéry', 9780156012195),
+  (7, 2010, 'En Prestamo', 'The Hunger Games', 'Scholastic Press', 'Suzanne Collins', 9780439023481),
+  (8, 1998, 'En Prestamo', 'The Alchemist', 'HarperCollins', 'Paulo Coelho', 9780061122415),
+  (9, 2007, 'En Prestamo', 'The Road', 'Knopf', 'Cormac McCarthy', 9780307265432),
+  (10, 2015, 'En Prestamo', 'Gone Girl', 'Crown Publishing Group', 'Gillian Flynn', 9780307588371),
+  (11, 1984, 'En Prestamo', 'The Catcher in the Rye', 'Little, Brown and Company', 'J.D. Salinger', 9780316769488),
+  (12, 2009, 'En Prestamo', 'The Help', 'Putnam Adult', 'Kathryn Stockett', 9780399155345);
 
 -- Insertar datos de socios
 INSERT INTO socio (cod_socio, dni, direccion, telefono, nombre, apellido)
@@ -38,10 +38,7 @@ VALUES
   (6, 6),
   (7, 7),
   (8, 8),
-  (9, 9),
-  (10, 4),
-  (11, 6),
-  (12, 4);
+  (9, 9);
 
 -- Insertar datos de items en préstamo
 INSERT INTO item_libro_en_prestamo (id_item, id_libro, id_prestamo, fecha_prestamo)
@@ -55,7 +52,7 @@ VALUES
   (7, 7, 7, '2024-04-18'),
   (8, 8, 8, '2024-04-19'),
   (9, 9, 9, '2024-04-20'),
-  (10, 10, 10, '2024-04-17'),
-  (11, 11, 11, '2024-04-16'),
-  (12, 12, 12, '2024-04-15');
+  (10, 10, 4, '2024-04-17'),
+  (11, 11, 6, '2024-04-16'),
+  (12, 12, 4, '2024-04-15');
 
