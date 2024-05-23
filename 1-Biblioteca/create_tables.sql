@@ -4,6 +4,7 @@ CREATE TABLE socio(cod_socio integer PRIMARY KEY,
   telefono integer,
   nombre text,
   apellido text,
+  fecha_registro NOT NULL DEFAULT CURRENT_DATE,
   fecha_baja text,
   UNIQUE (dni)
 );
@@ -35,7 +36,7 @@ CREATE TABLE  libro(
   editorial text,
   estado_fisico text NOT NULL DEFAULT "Bueno",
   disponibilidad text NOT NULL DEFAULT "Disponible",
-  timestamp_registro current_timestamp NOT NULL DEFAULT CURRENT_DATE,
+  fecha_registro current_timestamp NOT NULL DEFAULT CURRENT_DATE,
   autores text,
   isbn  integer,
   fecha_baja text
