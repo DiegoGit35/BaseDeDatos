@@ -1,3 +1,22 @@
+
+echo "--------------------------------------------------------"
+echo "|                    ALTA DE SOCIOS                    |"
+echo "--------------------------------------------------------"
+echo "DNI: "
+read dni
+echo "dirección: "
+read direccion
+echo "telefono: "
+read telefono
+echo "apellidos: "
+read apellido
+echo "nombres: "
+read nombre
+
+
 sqlite3 biblioteca.db <<EOF
-INSERT INTO socio (dni, direccion, telefono, nombre, apellido) VALUES ('$1','$2','$3','$4','$5');
+.mode table
+.headers on
+INSERT INTO socio (dni, direccion, telefono, nombre, apellido) 
+VALUES ('$dni','$direccion','$telefono','$nombre','$apellido');
 EOF

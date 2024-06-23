@@ -11,7 +11,7 @@
   }
 
   entity libro{
-    *id_libro:  number «generated»
+    *id_ejemplar:  number «generated»
     --
     *anio:              date
     *titulo:            text
@@ -29,7 +29,7 @@
     --
     id_libro:    number  «FK»
     id_prestamo: number  «FK»
-    *fecha_prestamo:      date
+    *fecha_prestamo:      date «generated»
     *fecha_limite_devolucion: date «generated»
     *fecha_devolucion:        date
     fecha_baja: text
@@ -39,12 +39,18 @@
     *id_prestamo:     number  «generated»
     --
     *cod_socio:       number  «FK»
-    *id_estado: text          «FK»
+    *estado: number          «FK»
     fecha_baja: text
+  }
+  
+  entity estado_prestamo{
+    *id_estado      number  «generated»
+    *estado   text
   }
 
 libro     ||--o{    item_libro_en_prestamo
 prestamo  ||--|{    item_libro_en_prestamo
 socio     ||--o{    prestamo
+estado_prestamo ||--o{ prestamo
 
 @enduml

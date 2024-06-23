@@ -9,13 +9,19 @@ CREATE TABLE socio(cod_socio integer PRIMARY KEY,
   UNIQUE (dni)
 );
 
+
+CREATE TABLE estado_prestamo(
+  id_estado integer NOT NULL PRIMARY KEY,
+  estado text
+);
+
 CREATE TABLE prestamo(
   id_prestamo integer NOT NULL PRIMARY KEY,
-  cod_socio integer references socio(cod_socio)
-  on DELETE restrict deferrable initially deferred,
-  id_estado text references estado_prestamo(id_estado) on DELETE restrict deferrable initially deferred NOT NULL DEFAULT "PENDIENTE",
+  cod_socio integer references socio(cod_socio) on DELETE restrict deferrable initially deferred,
+  estado integer references estado_prestamo(id_estado) on DELETE restrict deferrable initially deferred NOT NULL DEFAULT 1,
   fecha_baja text
 );
+
 
 CREATE TABLE  item_libro_en_prestamo(
   id_item integer PRIMARY KEY,
